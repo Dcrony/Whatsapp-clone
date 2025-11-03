@@ -271,3 +271,82 @@ body {
   font-size: 0.85rem;
   color: #aaa;
 }
+
+
+/* =========================
+   📱 MOBILE RESPONSIVE DESIGN
+   ========================= */
+@media (max-width: 768px) {
+    body {
+        align-items: stretch;
+    }
+
+    .whatsapp {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    /* Tabs move to top horizontally */
+    .left-tabs {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        justify-content: space-around;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        gap: 0;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .tab-list {
+        flex-direction: row;
+        gap: 15px;
+        margin-top: 0;
+    }
+
+    .tab {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Sidebar and chat window stack */
+    .sidebar, .chat-window {
+        width: 100%;
+        height: calc(100vh - 60px);
+        border: none;
+    }
+
+    .sidebar {
+        display: block;
+    }
+
+    .chat-window {
+        display: none;
+        flex-direction: column;
+    }
+
+    /* When active class added, show chat window */
+    .chat-window.active {
+        display: flex;
+    }
+
+    /* Add back button inside chat header */
+    .chat-header .back-btn {
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    /* Hide back button on desktop */
+    @media (min-width: 769px) {
+        .chat-header .back-btn {
+            display: none;
+        }
+    }
+}

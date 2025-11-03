@@ -135,3 +135,35 @@ tabs.forEach((tab, index) => {
     }
   });
 });
+
+
+// ===== MOBILE RESPONSIVE LOGIC =====
+
+// Show chat window when chat item clicked (on mobile)
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".chat-item")) {
+    const chatWindow = document.querySelector(".chat-window");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (window.innerWidth <= 768) {
+      sidebar.style.display = "none";
+      chatWindow.classList.add("active");
+    }
+  }
+
+  // Back button clicked
+  if (e.target.classList.contains("back-btn")) {
+    const chatWindow = document.querySelector(".chat-window");
+    const sidebar = document.querySelector(".sidebar");
+
+    chatWindow.classList.remove("active");
+    sidebar.style.display = "block";
+  }
+});
+
+// Add back button dynamically
+const chatHeader = document.querySelector(".chat-header .chat-user");
+const backBtn = document.createElement("span");
+backBtn.textContent = "←";
+backBtn.classList.add("back-btn");
+chatHeader.prepend(backBtn);
